@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 offset-md-6">
+                    <h2 style="border-radius: 10px 20px 0px 0px;background-color: #0a9b79;color: white;padding: 10px;">FACE RECOGNITION BASED ATTENDANCE SYSTEM</h2>
+                </div>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <h2 style="border-radius: 10px 20px 0px 0px;background-color: #6d0695;color: white;padding: 10px;">LIST OF USERS</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>USN</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in userlist %}
+                        <tr>
+                            <td>{{ user.split('_')[0] }}</td>
+                            <td>{{ user.split('_')[1] }}</td>
+                            <td><a href="/deleteuser?user={{ user }}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p>Total Registered Users: {{ totalreg }}</p>
+                <p>Date: {{ datetoday2 }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
